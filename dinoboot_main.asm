@@ -88,14 +88,20 @@ update_dino:
 
 dino_up:
 	mov dx, [dino_pos]
+	cmp dh, 0x0e
+	jz .exit
 	dec dh
 	mov [dino_pos], dx
+	.exit:
 	jmp return_update_dino
 
 dino_down:
 	mov dx, [dino_pos]
+	cmp dh, 0x10
+	jz .exit
 	inc dh
 	mov [dino_pos], dx
+	.exit:
 	jmp return_update_dino
 
 check_dino_object_collision:
@@ -141,8 +147,6 @@ move_cursor:
 	xor	bh, bh		; page 0	
 	int 	0x10
 	ret
-
-
 
 
 object_pos: dw 0x1030
