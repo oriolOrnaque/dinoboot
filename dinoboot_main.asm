@@ -16,7 +16,7 @@ game_loop:
 
 	call check_dino_object_collision
 
-	call poors_man_timer
+	call poor_mans_timer
 
 	mov ah, 0x01
 	int 0x16
@@ -118,7 +118,7 @@ check_dino_object_collision:
 		ret
 
 
-poors_man_timer:
+poor_mans_timer:
 	mov ax, 0x0000
 	.f_loop:
 		mov bx, 0x0000
